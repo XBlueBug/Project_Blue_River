@@ -1,0 +1,40 @@
+body{
+    background-color: skyblue;
+    color: cornsilk;
+}
+.heading1{
+    background-color: rgb(34, 131, 196);
+}
+
+
+.cbox{
+    border: 3px solid;
+}
+.arow{
+    border: 5px solid;
+    color: peru;
+}
+.col1{
+    height: 30px ;
+    background-color: blue;
+}
+.col2{
+    height: 30px ;
+    background-color:green;
+}
+.col3{
+    height: 30px ;
+    background-color: yellow;
+}
+.col4{
+    height: 30px ;
+    background-color: red;
+}
+.col5{
+    height: 30px ;
+    background-color: purple;
+}
+.col6{
+    height: 30px ;
+    background-color: orange;
+}

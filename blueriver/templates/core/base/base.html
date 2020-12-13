@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block tt %}other{% endblock tt %}</title>
+</head>
+<body>
+{% comment %} Nav bar start from here.. {% endcomment %}
+{% block navbar %}
+  {% include "core/base/nav.html" %}
+{% endblock navbar %}
+{% comment %} contant starts from here.. {% endcomment %}
+{% block contant %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>YOUR LIFE '&amp;' HEALTH IS OUR 1ST PRIORITY</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="media-body">
+                    <h2>Drink Water</h2>
+                </div>
+                <p class='h5'>
+                  Avoid dehydration by drinking of plenty of water in between dinner &amp; your pre_dawn meal
+                </p>
+            </div>
+            <div class="col-md-4">
+              <div class="media-body">
+                <h2>WHY WE DO IT?</h2>
+              </div>
+              <p class='h5'>
+              We provide you with safe, pure water that you need to nourish your body. Our belief is that every person deserves clean & fresh water. This means having clean drinkable water that is free from harmful contaminants. Let us help on your journey to great health today
+              </p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock contant %}
+{% comment %}Carociel start from here.{% endcomment %}
+{% block slide_img %}
+  {% include 'core/base/carousel.html' %}
+{% endblock slide_img %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block footer %}
+<!-- Footer -->
+<footer class="page-footer font-small spacial-color-dark bg-dark pt-4">
+  <div class="container">
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register to get a <strong>Free Trial Bottle</strong></h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="btn btn-outline-white btn-rounded">Register here!</a>
+      </li>
+    </ul>
+</div>
+<footer class="page-footer font-small special-color-dark pt-4">
+  <div class="container">
+   <!-- Social buttons -->
+   <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1">
+        <i class="fab fa-twitter"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1">
+        <i class="fab fa-google-plus-g"> </i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1">
+        <i class="fab fa-linkedin-in"> </i>
+      </a>
+    </li>
+</div>    
+</footer>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/">Blue River.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+{% endblock footer %}
+
+
+
+<script src="{% static 'js/query.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/all.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+</html>
