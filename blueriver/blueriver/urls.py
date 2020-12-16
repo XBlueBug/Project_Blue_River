@@ -19,7 +19,8 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home),
+    path('home/', views.home, name='homepage'),
     path('aboutus/', views.about),
+    path('contactus/', views.show_contact_info, name='contactform'),
 
 ]

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block tt %}other{% endblock tt %}</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 </head>
 <body>
 {% comment %} Nav bar start from here.. {% endcomment %}
@@ -18,18 +20,18 @@
 {% block contant %}
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 py-5">
                 <h1>YOUR LIFE '&amp;' HEALTH IS OUR 1ST PRIORITY</h1>
             </div>
-            <div class="col-md-4">
-                <div class="media-body">
+            <div class="col-md-4 py-5">
+                <div class="media-body ">
                     <h2>Drink Water</h2>
                 </div>
                 <p class='h5'>
                   Avoid dehydration by drinking of plenty of water in between dinner &amp; your pre_dawn meal
                 </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 py-5">
               <div class="media-body">
                 <h2>WHY WE DO IT?</h2>
               </div>
@@ -45,6 +47,9 @@
 {% block slide_img %}
   {% include 'core/base/carousel.html' %}
 {% endblock slide_img %}
+{% block info_form %}
+  
+{% endblock info_form %}
 
 
 
@@ -105,17 +110,12 @@
     <a href="https://mdbootstrap.com/">Blue River.</a>
   </div>
   <!-- Copyright -->
-
 </footer>
 <!-- Footer -->
 {% endblock footer %}
-
-
-
-<script src="{% static 'js/query.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>
 <script src="{% static 'js/all.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.js' %}"></script>
-
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
