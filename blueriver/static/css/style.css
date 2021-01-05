@@ -1,40 +1,14 @@
 body{
-    background-color: skyblue;
+    background-color: rgb(62, 187, 224);
     color: cornsilk;
 }
-.heading1{
-    background-color: rgb(34, 131, 196);
+/* thanks massage css for contact us form */
+.tk_card{
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-
-.cbox{
-    border: 3px solid;
-}
-.arow{
-    border: 5px solid;
-    color: peru;
-}
-.col1{
-    height: 30px ;
-    background-color: blue;
-}
-.col2{
-    height: 30px ;
-    background-color:green;
-}
-.col3{
-    height: 30px ;
-    background-color: yellow;
-}
-.col4{
-    height: 30px ;
-    background-color: red;
-}
-.col5{
-    height: 30px ;
-    background-color: purple;
-}
-.col6{
-    height: 30px ;
-    background-color: orange;
-}

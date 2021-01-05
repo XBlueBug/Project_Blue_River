@@ -22,5 +22,6 @@ urlpatterns = [
     path('home/', views.home, name='homepage'),
     path('aboutus/', views.about),
     path('contactus/', views.show_contact_info, name='contactform'),
+    path('success/', views.thankyou),
 
 ]

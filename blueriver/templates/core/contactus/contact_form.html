@@ -1,0 +1,52 @@
+ {% load static %} 
+<style>
+  /* contact us form */
+.cu{
+    margin-left: 800px;
+}
+body{
+  background-image: url("{% static 'images/picture4.png' %}");
+  background-repeat: no-repeat;
+  background-position-y: 70px;
+  background-position-x: 120px;
+}
+</style>
+<div class="container cu">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row justify-content-center custom-margin" style="max-width: 70rem;">
+        <div class="card-body">
+          <h5 class="card-title">Get In Touch</h5>
+          <p class="card-text">We Will call You Back Right after 15 Minuts.</p>
+          <form action="" method="POST" novalidate> 
+           {% csrf_token %}
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                {{form.name.label_tag}}
+                {{form.name}}
+              </div>           
+              <div class="col-md-4 mb-3">
+                {{form.email.label_tag}}
+                {{form.email}}
+              </div>
+              <div class="col-md-4 mb-3">
+                {{form.contact.label_tag}}
+                {{form.contact}}
+              </div>            
+              <div class="form-row col-md-12 mb-3">
+                {{form.address.label_tag}}
+                {{form.address}}
+              </div>
+              <div class="form-row col-md-12 mb-3">
+                {{form.comment.label_tag}}
+                {{form.comment}}
+              </div>
+              <button type="Submit" class="btn btn_color btn-outline-info btn-block ">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
