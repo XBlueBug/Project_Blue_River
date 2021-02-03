@@ -1,0 +1,102 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block tt %}Registration{% endblock tt %}
+{% block contant %}
+<div class="container">
+    <div class="reg_fm ">
+        <h2 class="title text-center p-4"><strong>Registration Form</strong></h2>
+    </div>
+    <div class="">
+        <form method="POST">
+        {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-6 col-sm-12 mb-2">
+                    {{reg_form.first_name.label_tag}}
+                    {{reg_form.first_name}}
+                </div>
+                <div class="col-md-6 col-sm-12 mb-2">
+                    {{reg_form.last_name.label_tag}}
+                    {{reg_form.last_name}}
+                </div>
+            </div>    
+            <div class="form-row col-12 mb-2">
+                {{reg_form.email.label_tag}}
+                {{reg_form.email}}
+            </div>
+            <div class="form-row col-12 mb-2">
+                {{reg_form.address.label_tag}}
+                {{reg_form.address}}
+            </div>
+            <div class="form-row">
+                <div class="col-4 ">
+                    {{reg_form.contact.label_tag}}
+                    {{reg_form.contact}}
+                </div>
+                <div class="col-4 ">
+                    {{reg_form.password.label_tag}}
+                      {{reg_form.password}} 
+                </div>
+                <div class="col-4 ">
+                    {{reg_form.re_enter_password.label_tag}}
+                      {{reg_form.re_enter_password}} 
+                </div>
+            </div>
+            <div class="form-row col-12">
+                <label class="label label--block mt-3 mb-3"><h4>Are you an existing customer?</h4></label>
+                <div class="p-t-15">
+                    <label class="radio-container mt-3 mb-3 ml-5 m-r-55">Yes
+                        <input type="radio" checked="checked" name="exist">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">No
+                        <input type="radio" name="exist">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <button type="Submit" class="btn font-weight-bold shadow-sm btn-outline-sucsess btn-block mb-5">Register</button>
+            </div>
+        </form>
+    </div>
+</div>    
+
+
+
+
+
+{% comment %} <form action="" method="POST" > 
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="col-md-4 col-sm-12 mb-3">
+      <i class="fas fa-user"></i> {{reg_form.first_name.label_tag}}</label>
+      {{reg_form.first_name}}
+    </div>           
+    <div class="col-md-4 col-sm-12 mb-3">
+      <i class="fa fa-pen"></i> {{reg_form.last_name.label_tag}}
+      {{reg_form.last_name}}
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+      <i class="fas fa-id-card"></i> {{reg_form.email.label_tag}}
+      {{reg_form.email}}
+    </div>            
+    <div class="form-row col-md-12 col-sm-12 mb-3">
+      <div class="col-md-12 col-sm-12 mb-3">
+      <i class="fas fa-map-marker-alt"></i>&nbsp;{{reg_form.address.label_tag}}
+      {{reg_form.address}}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        {{reg_form.phone.label_tag}}
+        {{reg_form.phone}}
+      </div>
+      <div class="col-md-6 mb-3">
+        {{reg_form.password.label_tag}}
+        {{reg_form.password}}
+      </div>
+    </div>         
+    <button type="Submit" class="btn btn-outline-info btn-block ">Submit</button>
+  </div>
+</form> {% endcomment %}
+{% endblock contant %}

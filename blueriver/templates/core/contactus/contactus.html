@@ -1,17 +1,45 @@
 {% extends 'core/base/base.html' %}
 {% load static %}
-{% block tt %}
-    Contact Us
+ {% block tt %}
+    Contact us
 {% endblock tt %}
-{% block slide_img %}
-
-{% endblock slide_img %} 
+<body class="contact">
 {% block contant %}
-
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-sm-12">
+      <h2 class="text-center mt-5"><strong>Contact Us</strong></h2>    
+      <form action="" class="shadow-lg p-4" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <i class="fas fa-user"></i> {{form.name.label_tag}}
+          {{form.name}}
+        </div>
+        <div class="form-group">
+          <i class="fas fa-pen"></i> {{form.email.label_tag}}
+          {{form.email}}
+        </div>
+        <div class="form-group">
+          <i class="fas fa-id-card"></i> {{form.contact.label_tag}}
+          {{form.contact}}
+        </div>
+        <div class="form-group">
+          <i class="fas fa-map-marker-alt"></i> {{form.address.label_tag}}
+          {{form.address}}
+        </div>
+        <div class="form-group">
+          <i class="fas fa-comment-dots"></i> {{form.comment.label_tag}}
+          {{form.comment}}
+        </div>
+        <button type="Submit" class="btn font-weight-bold shadow-sm btn-outline-sucess btn-block mb-5">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock contant %}
-{% block info_form %}
-    {% include 'core/contactus/contact_form.html' %}  
-{% endblock info_form %}
+</body>
 
 
 
+    
+    

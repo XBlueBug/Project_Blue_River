@@ -1,14 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,300&family=Xanh+Mono:ital@1&display=swap');
 body{
-    background-color: rgb(62, 187, 224);
-    color: cornsilk;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+    background-color:rgb(39, 152, 218) ;
+    font-weight: 600;
+    word-spacing: 2px;
+    letter-spacing: 2px;
 }
-/* thanks massage css for contact us form */
+*{
+    margin: 0px;
+    padding: 0px;
+}
 .tk_card{
-    width: 40vw;
-    height: 40vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
+    margin-top: 300px;
 }
+#bgimage {  
+    background-repeat: no-repeat;
+    background-size: 1800px 900px;
+    background-position: top;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.contactus_row{
+    background-color: cornsilk;
+    color: darkblue;
+}
+
+
+
+
+
 
