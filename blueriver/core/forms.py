@@ -1,5 +1,10 @@
 from django import forms
 from phonenumber_field.formfields import PhoneNumberField
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.utils.translation import gettext, gettext_lazy as _
+# from .models import Customer
+
 # contact us form starts from here..
 
 class ContactInformation(forms.Form):
@@ -9,7 +14,7 @@ class ContactInformation(forms.Form):
     comment = forms.CharField(label_suffix=" ", widget=forms.Textarea(attrs={"class":"form-control border-info is-valid", "placeholder":"Your Question"}), max_length=200)
     address = forms.CharField(label_suffix=" ", widget = forms.TextInput(attrs={'class':'form-control border-info is-valid blackText', 'placeholder':'flat no floor apartment house'}))        
     
-    # def clean(Self):
+    # def clean(Self): 
     #     cleaned_data = super().clean()
     #     valname = self.cleaned_data['name']
     #     valemail = self.cleaned_data['email']
@@ -30,15 +35,33 @@ class ContactInformation(forms.Form):
     #     if len(valaddress) < 8:
     #         raise forms.ValidationError(' Please Enter Address in detail')
       
-        
+
+class UserRegistrationForm(UserCreationForm):
+    password1 = forms.CharField(label='Password', label_suffix=" ", widget=forms.PasswordInput(attrs={"class":"form-control border-info is-valid ",'placeholder':'Password'}),)
+    password2 = forms.CharField(label='Confirm Password',label_suffix=" ", widget=forms.PasswordInput(attrs={"class":"form-control border-info is-valid ",'placeholder':'Password(again)'}),)
+    class Meta:
+        model  = User
+        fields = ['first_name', 'last_name', 'username', 'email']
+        widgets={
+            'first_name':forms.TextInput(attrs={"class":"form-control border-info is-valid ","placeholder":"First Name"}),
+            'last_name' :forms.TextInput(attrs={"class":"form-control border-info is-valid ","placeholder":"Last Name"}),
+            'username'  :forms.TextInput(attrs={"class":"form-control border-info is-valid ","placeholder":"@Username"}),
+            'email'     :forms.EmailInput(attrs={"class":"form-control border-info is-valid", "placeholder":"Email Address"}),
+            }    
 
 
+class UserLoginForm(AuthenticationForm):
+    username    = UsernameField(widget=forms.TextInput(attrs={'autofoucus':True, "class":"form-control border-info is-valid ",'placeholder':'Username'}),)
+    password = forms.CharField(label_suffix=" ", label=_('Password'), strip=False, widget=forms.PasswordInput(attrs={'autocomplete':'current-password', "class":"form-control border-info is-valid ",'placeholder':'Password'}),)
 
-class User_Registration_Form(forms.Form):
-    first_name = forms.CharField(max_length=20, label_suffix=" ", widget=forms.TextInput(attrs={"class":"form-control border-info is-valid ","placeholder":"First Name"}))
-    last_name  = forms.CharField(max_length=20, label_suffix=" ", widget=forms.TextInput(attrs={"class":"form-control border-info is-valid ","placeholder":"Last Name"}))
-    email      = forms.EmailField(max_length=100, label_suffix=" ", widget=forms.EmailInput(attrs={"class":"form-control border-info is-valid", "placeholder":"Email Address"}))
-    address    = forms.CharField(max_length=200, label_suffix=" ", widget = forms.TextInput(attrs={'class':'form-control border-info is-valid blackText', 'placeholder':'Flat/House no Floor/Street Area'}))
-    contact    = PhoneNumberField(label_suffix=" ", widget = forms.NumberInput(attrs={'class':'form-control border-info is-valid blackText', 'placeholder':'Mobile No eg +923001234567'}))
-    password   = forms.CharField(max_length=14, label_suffix=" ", widget = forms.PasswordInput(attrs={'class':'form-control border-info is-valid blackText', 'placeholder':'Password'}))    
-    re_enter_password = forms.CharField(max_length=14, label_suffix=" ", widget = forms.PasswordInput(attrs={'class':'form-control border-info is-valid blackText', 'placeholder':'Password'}))
+
+# class CustomerProfileForm(forms.ModelForm): 
+#     class Meta:
+#         model = Customer
+#         fields = ['name', 'address', 'area' 'city']
+#         widgets = {'name':forms.TextInput(attrs={'class':'form-control'}), 
+#         'address':forms.TextInput(attrs={'class':'form-control'}), 
+#         'area':forms.TextInput(attrs={'class':'form-control'}), 
+#         'city':forms.TextInput(attrs={'class':'form-control'})}
+
+       

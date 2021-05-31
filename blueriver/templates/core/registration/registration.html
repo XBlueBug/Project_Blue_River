@@ -1,8 +1,9 @@
 {% extends 'core/base/base.html' %}
 {% load static %}
 {% block tt %}Registration{% endblock tt %}
+
 {% block contant %}
-<div class="container">
+{% comment %} <div class="container">
     <div class="reg_fm ">
         <h2 class="title text-center p-4"><strong>Registration Form</strong></h2>
     </div>
@@ -10,13 +11,17 @@
         <form method="POST">
         {% csrf_token %}
             <div class="form-row">
-                <div class="col-md-6 col-sm-12 mb-2">
+                <div class="col-md-12 col-sm-12 mb-2">
                     {{reg_form.first_name.label_tag}}
                     {{reg_form.first_name}}
                 </div>
-                <div class="col-md-6 col-sm-12 mb-2">
+                <div class="col-md-12 col-sm-12 mb-2">
                     {{reg_form.last_name.label_tag}}
                     {{reg_form.last_name}}
+                </div>
+                <div class="col-md-12 col-sm-12 mb-2">
+                    {{reg_form.username.label_tag}}
+                    {{reg_form.username}}
                 </div>
             </div>    
             <div class="form-row col-12 mb-2">
@@ -26,19 +31,19 @@
             <div class="form-row col-12 mb-2">
                 {{reg_form.address.label_tag}}
                 {{reg_form.address}}
-            </div>
+            </div> 
             <div class="form-row">
                 <div class="col-4 ">
                     {{reg_form.contact.label_tag}}
                     {{reg_form.contact}}
+                </div> 
+                <div class="col-6 ">
+                    {{reg_form.password1.label_tag}}
+                      {{reg_form.password1}} 
                 </div>
-                <div class="col-4 ">
-                    {{reg_form.password.label_tag}}
-                      {{reg_form.password}} 
-                </div>
-                <div class="col-4 ">
-                    {{reg_form.re_enter_password.label_tag}}
-                      {{reg_form.re_enter_password}} 
+                <div class="col-6 ">
+                    {{reg_form.password2.label_tag}}
+                      {{reg_form.password2}} 
                 </div>
             </div>
             <div class="form-row col-12">
@@ -59,13 +64,15 @@
             </div>
         </form>
     </div>
-</div>    
+</div>        {% endcomment %}
 
-
-
-
-
-{% comment %} <form action="" method="POST" > 
+{% comment %} 
+<div class="contaner signup">
+<div class="card text-white bg-dark ">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Dark card title</h5>
+    <form action="" method="POST" > 
   {% csrf_token %}
   <div class="form-row">
     <div class="col-md-4 col-sm-12 mb-3">
@@ -98,5 +105,166 @@
     </div>         
     <button type="Submit" class="btn btn-outline-info btn-block ">Submit</button>
   </div>
-</form> {% endcomment %}
-{% endblock contant %}
+</form>
+  </div>
+</div>
+</div> {% endcomment %}
+{% comment %} <div class="card text-white bg-dark mb-3" style="max-width: 70rem;">
+  <div class="card-header text-center">Blue River</div>
+    <div class="card-body">
+        <h5 class="card-title text-center">Thank you For Your Response</h5>
+        <form action="" method="POST">
+          {% csrf_token %}
+           <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-user"></i> {{reg_form.first_name.label_tag}}</label>
+              {{reg_form.first_name}}
+            </div>
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-user"></i> {{reg_form.last_name.label_tag}}
+              {{reg_form.last_name}}
+            </div>
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-users"></i> {{reg_form.username.label_tag}}
+              {{reg_form.username}}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <i class="fas fa-id-card"></i> {{reg_form.email.label_tag}}
+              {{reg_form.email}}
+            </div>
+            <div class="col-md-3 mb-3">
+              <i class="fas fa-key"></i> {{reg_form.password1.label_tag}}
+              {{reg_form.password1}}
+            </div>
+            <div class="col-md-3 mb-3">
+              <i class="fas fa-key"></i> {{reg_form.password2.label_tag}}
+              {{reg_form.password2}}
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+              <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+  </div>
+</div> {% endcomment %}
+
+
+        {% comment %} <form action="" method="POST">
+          {% csrf_token %}
+           <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-user"></i> {{reg_form.first_name.label_tag}}</label>
+              {{reg_form.first_name}}
+            </div>
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-user"></i> {{reg_form.last_name.label_tag}}
+              {{reg_form.last_name}}
+            </div>
+            <div class="col-md-4 mb-3">
+              <i class="fas fa-users"></i> {{reg_form.username.label_tag}}
+              {{reg_form.username}}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <i class="fas fa-id-card"></i> {{reg_form.email.label_tag}}
+              {{reg_form.email}}
+            </div>
+            <div class="col-md-3 mb-3">
+              <i class="fas fa-key"></i> {{reg_form.password1.label_tag}}
+              {{reg_form.password1}}
+            </div>
+            <div class="col-md-3 mb-3">
+              <i class="fas fa-key"></i> {{reg_form.password2.label_tag}}
+              {{reg_form.password2}}
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+              <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+ {% endcomment %}
+
+<div class="container-fluid">
+    <h1 class="text-center mt-3"><strong>Registration Form</strong></h1>
+    <div class="container">
+        <div class="mycard">
+            <div class="row">
+                <div class="Col-md-6">
+                    <div class="MyLeftCtn">
+                        <form class='myform' action="" method="post" novalidate>
+                            <header class='mb-3'><strong>Create New Account</strong></header>
+                            <div class="form-group">
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}
+                                <p>{{error}}</p>
+                                {% endfor %}
+                                {% endif %}
+                                <div class="form-row">
+                                  <div class="col-md-4 mb-3">
+                                    <i class="fas fa-user"></i> {{reg_form.first_name.label_tag}}</label>
+                                    {{reg_form.first_name}}
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <i class="fas fa-user"></i> {{reg_form.last_name.label_tag}}
+                                    {{reg_form.last_name}}
+                                  </div>
+                                  <div class="col-md-4 mb-3">
+                                    <i class="fas fa-users"></i> {{reg_form.username.label_tag}}
+                                    {{reg_form.username}}
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="col-md-6 mb-3">
+                                    <i class="fas fa-id-card"></i> {{reg_form.email.label_tag}}
+                                    {{reg_form.email}}
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <i class="fas fa-key"></i> {{reg_form.password1.label_tag}}
+                                    {{reg_form.password1}}
+                                  </div>
+                                  <div class="col-md-3 mb-3">
+                                    <i class="fas fa-key"></i> {{reg_form.password2.label_tag}}
+                                    {{reg_form.password2}}
+                                </div>
+                                <button class="btn btn-primary" type="submit">Register</button>                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="Col-md-6">
+                    <div class="MyRightCtn">
+                        <div class="box"><header>Hello World</header></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ad! Asperiores reiciendis perspiciatis assumenda placeat. Repellendus facilis totam beatae doloremque autem iure optio excepturi nihil nulla perspiciatis asperiores cumque, sequi, officiis iusto similique eligendi laudantium nesciunt magni. Dicta, esse labore?</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock contant %} 

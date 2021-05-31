@@ -17,12 +17,20 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('signup/', views.Sign_up, name='signup'),
     path('home/', views.home, name='homepage'),
     path('aboutus/', views.about, name='about'),
     path('contactus/', views.show_contact_info, name='contactform'),
     path('reg/', views.user_reg, name='userreg'),
+    path('account/login/', views.user_login, name='login'),
+    path('account/logout/', views.user_logout, name='logout'),
+    path('account/pass_change/', views.user_logout, name='pass_change'),
+    # path('profile/', views.user_profile, name='profile'),
+    path('profile/', views.UserProfile.as_view(), name='profile'),
     path('success/', views.thankyou),
 
-]
+] 

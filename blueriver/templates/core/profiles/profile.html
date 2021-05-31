@@ -1,0 +1,110 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block tt %}Profile{% endblock tt %}
+{% block contant %}
+{% comment %} <div class="container my-5">
+    <div class="row">
+        <h1>Wellcome Sharukh </h1>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid">
+                    <a href="{% url 'profile' %}" class="btn">Profile</a>
+                </li>
+                <li class="d-grid">
+                    <a href="" class="btn">address</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8 oddset-sm-1">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for fm in form %}
+                    <div class="form-group col-lg-6 mb-3" >
+                        {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div>
+                {% endfor %}
+                <div class="col-12 mt-3">
+                    <button type="submit btn btn-primary mb-3">Submit</button>
+                    <a href=""></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> {% endcomment %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="container mt-5">
+        <h6 class="heading-small text-muted mb-4">User information</h6>
+        <div class="pl-lg-4">
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group focused">
+                <label class="form-control-label" for="input-username">Username</label>
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                <label class="form-control-label" for="input-email">Email address</label>
+                <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group focused">
+                <label class="form-control-label" for="input-first-name">First name</label>
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group focused">
+                <label class="form-control-label" for="input-last-name">Last name</label>
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <!-- Address -->
+        <h6 class="heading-small text-muted mb-4">Contact information</h6>
+        <div class="pl-lg-4">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="form-group focused">
+                <label class="form-control-label" for="input-address">Address</label>
+                <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group focused">
+                <label class="form-control-label" for="input-city">City</label>
+                <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <!-- Description -->
+        <h6 class="heading-small text-muted mb-4">About me</h6>
+        <div class="pl-lg-4">
+            <div class="form-group focused">
+            <label>About Me</label>
+            <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% if messages %}
+    {% for message in messages %}
+        <p {% if message.tags %} class="alart alart-{{message.tags}} text-center mb-5" {% endif %}>{{message}}</p>
+    {% endfor %}
+{% endif %}
+
+{% endblock contant %}
+

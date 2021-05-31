@@ -1,8 +1,14 @@
 from django.shortcuts import render
-from .forms import ContactInformation, User_Registration_Form 
-from .models import User_Registration, Contact
+from .forms import ContactInformation, UserRegistrationForm, UserLoginForm
+from .models import Contact
+from django.views.generic import View
 from django.http import HttpResponseRedirect
-# Create your views here.
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth import authenticate, login, logout
+
+  
+# views Start from here
 def home(request):
     return render(request, 'core/home.html')
 
@@ -32,19 +38,49 @@ def show_contact_info(request):
 
 def user_reg(request):
     if request.method == 'POST':
-        urfm = User_Registration_Form(request.POST) 
+        urfm = UserRegistrationForm(request.POST) 
         if urfm.is_valid():
-            print('This Is POST Method')
-            fnm  = urfm.cleaned_data['first_name']
-            l_nm = urfm.cleaned_data['last_name']
-            em   = urfm.cleaned_data['email']
-            add  = urfm.cleaned_data['address']
-            con  = urfm.cleaned_data['contact']
-            pwd  = urfm.cleaned_data['password']
-            r_pwd= urfm.cleaned_data['re_enter_password']
-            user = User_Registration(first_name=fnm, last_name=l_nm, email=em, address=add, contact=con, password=pwd, re_enter_password=r_pwd)
-            user.save()
+            urfm.save()
+            messages.success(request, 'Account Created Sucessfully...!!!')
             return HttpResponseRedirect('/success/')
     else:
-        urfm = User_Registration_Form()
+        urfm = UserRegistrationForm()
     return render(request, 'core/registration/registration.html', {'reg_form': urfm})            
+ 
+
+                    #     login views starts from here..
+
+
+def user_login(request):
+    if request.method == 'POST':
+        ulfm = UserLoginForm(request=request, data=request.POST)
+        if ulfm.is_valid():
+            uname = ulfm.cleaned_data['username']
+            upass = ulfm.cleaned_data['password']
+            user  = authenticate(username=uname, password=upass)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Login Successfully...!!!')
+                return HttpResponseRedirect('/profile/')
+    else:
+        ulfm = UserLoginForm()
+    return render(request, 'core/registration/login.html', {'logfm': ulfm})
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/login/')
+
+                        # Profile views start from here..!!
+
+
+class UserProfile(View):
+    def get(self, request):
+        form =CustomerProfileForm()
+        return render(request, 'core/profiles/profile.html', {'form':form, 'active':'btn-primery'})
+    def post(self, request):
+        form =CustomerProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'core/profiles/profile.html', {'form':form, 'active':'btn-primery'})
+
+

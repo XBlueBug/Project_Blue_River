@@ -1,0 +1,35 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+{% block tt %}Login{% endblock tt %}
+{% block contant %}
+<div class="login_img">
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="POST" novalidate>
+                            {% csrf_token %}
+                            {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                            <p>{{error}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            {% for lfm in logfm %}
+                            {{lfm.label_tag}} {{lfm}} {{lfm.errors|striptags}}    <br><br>
+                            {% endfor %}
+                            <input type="submit" value="Login">
+                            <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+{% endblock contant %}
+

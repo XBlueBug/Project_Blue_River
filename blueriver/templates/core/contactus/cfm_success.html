@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <style>
-    .tk_card{
-        
-    }
-    </style>
 </head>
 <body>
 
 <div class="card text-white bg-dark mb-3 tk_card" style="max-width: 70rem;">
     <div class="card-header text-center">Blue River</div>
     <div class="card-body">
-        <h5 class="card-title text-center">Thank you For Your Response</h5>
-        <p class="card-text"><h1>Your Response has been <strong>Successfully</strong> Submited</h1></p>
-        <p class='text-center'>We will call you back with in 1 houre</p>
+        <h5 class="card-title text-center">Thank you For Your Registration</h5>
+        <p class="card-text text-center">
+        {% if messages %}
+            {% for message in messages %}
+                <small {% if message.tags %} class="{{message.tags}}" {% endif %}> <h1><strong class='text-center'>{{message}}</strong></h1> </small>
+            {% endfor %}
+        {% endif %}</p>
+        
         
     </div>
 </div>

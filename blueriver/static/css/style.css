@@ -15,6 +15,12 @@ body{
     margin: auto;
     margin-top: 300px;
 }
+.signup_card{
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    width: 50%;
+}
 #bgimage {  
     background-repeat: no-repeat;
     background-size: 1800px 900px;
@@ -31,8 +37,27 @@ body{
     color: darkblue;
 }
 
+/* reg form starts here */
 
+.login_img{
+    background-image: url(../images/slider\ 02.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
 
-
-
-
+#login .container #login-row #login-column #login-box {
+    margin-top: 50px;
+    margin-bottom: 120px;
+    max-width: 600px;
+    height: 320px;
+    /* border: 1px solid #9C9C9C; */
+    background-color: #0000;;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
